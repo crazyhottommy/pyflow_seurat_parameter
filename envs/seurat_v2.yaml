@@ -1,0 +1,9 @@
+name: seurat_v2
+channels:
+ - conda-forge
+ - bioconda
+ - defaults
+ - r
+dependencies:
+ - r=3.5.1
+ - r-Seurat=2.3.4

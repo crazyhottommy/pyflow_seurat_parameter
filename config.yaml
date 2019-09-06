@@ -1,0 +1,39 @@
+
+## set up parameters
+######################################################################
+
+############     Bootstrap related parameters        #################
+
+######################################################################
+input_seurat: "seurat_obj.rds"
+subsample_rate: 0.8
+num_of_resample: 20
+
+resample_ks: "8 10 12 14 16"
+
+resample_resolutions: "0.6 0.8 1 1.2 1.4"
+
+## number of PCs to use, pc.use 
+resample_pcs: "150"
+
+######################################################################
+
+############     scclusteval package related parameters   ############
+
+######################################################################
+
+## those are parameters for functions from  Seurat package 
+## preprocessSubsetData is a wrapper.
+
+## you should leave k.param, pc.use and resolution out
+## library(scclusteval)
+## ?PreprocessSubsetData   you can also set pc.use = 20 to skip the JackStraw which was used to determine the best PCs to use
+PreprocessSubsetData_resample_pars: "variable.features.n = 3000, num.pc = 150, workers = 8, score.thresh = 1e-5, n.start = 100, nn.eps = 0"
+
+
+CLUSTER_JSON: './cluster.json'
+
+
+
+
+

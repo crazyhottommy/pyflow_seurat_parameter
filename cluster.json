@@ -1,0 +1,49 @@
+{
+    "__default__" :
+    {
+        "time" : "00:40:00",
+        "N" : 1,
+        "n": 1,
+        "mem": 4000,
+        "p" : "shared",
+        "name" : "{rule}.{wildcards}",
+        "output": "sbatch_log/{rule}.{wildcards}.out",
+        "error": "sbatch_log/{rule}.{wildcards}.err"
+    },
+    "bootstrap_k_preprocess":
+    {
+        "time" : "1:00:00",
+        "n" : 8,
+        "mem": 32768
+    },
+    "bootstrap_k":
+    {
+        "time" : "1:00:00",
+        "n" : 8,
+        "mem": 32768
+    },
+    "bootstrap_resolution_preprocess":
+    {
+        "time" : "1:00:00",
+        "n" : 8,
+        "mem": 32768
+    },
+    "bootstrap_resolution":
+    {
+        "time" : "1:00:00",
+        "mem": 32768,
+        "n" : 8
+    },
+    "bootstrap_k_and_resolution_preprocess":
+    {
+        "time" : "1:00:00",
+        "mem": 32768,
+        "n": 8
+    },
+    "bootstrap_k_and_resolution":
+    {
+        "time" : "1:00:00",
+        "mem": 32768,
+        "n": 8
+    }
+}
