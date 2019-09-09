@@ -17,7 +17,7 @@ subset_seurat_obj<- RandomSubsetData(seurat_obj, rate = snakemake@params[["rate"
 original_ident<- Idents(subset_seurat_obj)
 
 ## after reprocessing, the ident slot will be updated with the new cluster id
-command<- paste("PreprocessSubsetData", "(", "seurat_obj,", "k.param=", k, ",", "pc.use=", pc.use, ",",
+command<- paste("PreprocessSubsetData", "(", "subset_seurat_obj,", "k.param=", k, ",", "pc.use=", pc.use, ",",
                                    "resolution=", resolution, ",", PreprocessSubsetData_pars, ")")
 subset_seurat_obj<- eval(parse(text=command))
 

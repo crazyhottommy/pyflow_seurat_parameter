@@ -8,7 +8,7 @@ rdss<- snakemake@input[["rds"]]
 
 get_df<- function(rds){
 	res<- readRDS(rds)
-	return(rds)
+	return(res)
 }
 
 dat.list<- lapply(rdss, get_df)
