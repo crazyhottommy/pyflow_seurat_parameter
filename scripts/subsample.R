@@ -25,7 +25,7 @@ res<- tibble::tibble(pc = pc.use, resolution = resolution, k_param = k, original
     recluster_ident = list(Idents(subset_seurat_obj)), round = run_id)
 
 
-outfile<- paste0("subsample/resample_", "k_", k, "_resolution_", resolution, "_PC_", pc.use, "_round_", run_id, ".rds")
+outfile<- paste0("subsample/subsample_", "k_", k, "_resolution_", resolution, "_PC_", pc.use, "_round_", run_id, ".rds")
 saveRDS(res, file = outfile)
 
 ## make sure it is not empty file
