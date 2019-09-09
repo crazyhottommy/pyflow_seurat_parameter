@@ -9,7 +9,6 @@ seurat_obj<- readRDS(snakemake@input[[1]])
 k<- snakemake@wildcards[["k"]]
 resolution<- snakemake@wildcards[["resolution"]]
 pc.use<- snakemake@wildcards[["pc"]]
-run_id<- snakemake@wildcards[["run_id"]]
 
 PreprocessSubsetData_pars<- snakemake@params[["PreprocessSubsetData_pars"]]
 
@@ -21,11 +20,10 @@ command<- paste("PreprocessSubsetData", "(", "seurat_obj,", "k.param=", k, ",", 
                                    "resolution=", resolution, ",", PreprocessSubsetData_pars, ")")
 subset_seurat_obj<- eval(parse(text=command))
 
-res<- tibble::tibble(pc = pc.use, resolution = resolution, k_param = k, original_ident = list(original_ident),
-    recluster_ident = list(Idents(subset_seurat_obj)), round = run_id)
+res<- list(original_ident = original_ident, ident = Idents(subset_seurat_obj), k = k, pc.use = subset_seurat_obj@meta.data$pc.use)
+run_id<- snakemake@wildcards[["run_id"]]
 
-
-outfile<- paste0("subsample/resample_", "k_", k, "_resolution_", resolution, "_PC_", pc.use, "_round_", run_id, ".rds")
+outfile<- paste0("subsample/subsample_", "k_", k, "_resolution_", resolution, "_PC_", pc.use, "_round_", run_id, ".rds")
 saveRDS(res, file = outfile)
 
 ## make sure it is not empty file

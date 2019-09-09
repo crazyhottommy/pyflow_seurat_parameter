@@ -12,13 +12,13 @@ pcs = config["subsample_pcs"].strip().split()
 INPUT_SEURAT = config["input_seurat"]
 
 
-subsample_K_RESOLUTION_PC = expand("subsample_k_and_resolution/subsample_k_{k}_resolution_{resolution}_PC_{pc}_round_{run_id}.rds", \
+SUBSAMPLE_K_RESOLUTION_PC = expand("subsample/subsample_k_{k}_resolution_{resolution}_PC_{pc}_round_{run_id}.rds", \
 	k = ks, resolution = resolutions, pc = pcs, run_id = range(NUM_OF_SUBSAMPLE))
 
 
 TARGETS = []
 
-TARGETS.extend(subsample_K_RESOLUTION_PC)
+TARGETS.extend(SUBSAMPLE_K_RESOLUTION_PC)
 TARGETS.append("gather_subsample.rds")
 
 
@@ -51,7 +51,7 @@ rule subsample_cluster:
 
 
 rule gather_subsample:
-	input: rds = subsample_K_RESOLUTION_PC
+	input: rds = SUBSAMPLE_K_RESOLUTION_PC
 	output: "gather_subsample.rds"
 	singularity: "docker://crazyhottommy/seuratv3"
 	log: "00log/gather_subsample.log"

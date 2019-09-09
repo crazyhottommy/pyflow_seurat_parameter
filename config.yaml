@@ -7,14 +7,14 @@
 ######################################################################
 input_seurat: "seurat_obj.rds"
 subsample_rate: 0.8
-num_of_resample: 20
+num_of_subsample: 20
 
-resample_ks: "8 10 12 14 16"
+subsample_ks: "8 10 12 14 16"
 
-resample_resolutions: "0.6 0.8 1 1.2 1.4"
+subsample_resolutions: "0.6 0.8 1 1.2 1.4"
 
 ## number of PCs to use, pc.use 
-resample_pcs: "150"
+subsample_pcs: "150"
 
 ######################################################################
 
@@ -28,7 +28,7 @@ resample_pcs: "150"
 ## you should leave k.param, pc.use and resolution out
 ## library(scclusteval)
 ## ?PreprocessSubsetData   you can also set pc.use = 20 to skip the JackStraw which was used to determine the best PCs to use
-PreprocessSubsetData_resample_pars: "variable.features.n = 3000, num.pc = 150, workers = 8, score.thresh = 1e-5, n.start = 100, nn.eps = 0"
+PreprocessSubsetData_subsample_pars: "variable.features.n = 3000, num.pc = 150, workers = 8, score.thresh = 1e-5, n.start = 100, nn.eps = 0"
 
 
 CLUSTER_JSON: './cluster.json'
