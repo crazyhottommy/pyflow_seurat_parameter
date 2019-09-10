@@ -15,4 +15,4 @@ PreprocessSubsetData_pars<- snakemake@params[["PreprocessSubsetData_pars"]]
 ## this is not subsetted data, but the PreprocessSubsetData function can be used as well for any seurat object
 seurat_obj<- eval(parse(text=paste("PreprocessSubsetData", "(", "seurat_obj,", "k.param=", k, ",", "pc.use=", pc.use, ",",
                                    "resolution=", resolution, ",", PreprocessSubsetData_pars, ")")))
-saveRDS(seurat_obj, file = paste0("subsample_preprocess/subsample_", "k_", k, "_resolution_", resolution, "_PC_", pc.use, ".rds"))
+saveRDS(seurat_obj, file = paste0("full_sample_preprocess/full_sample_", "k_", k, "_resolution_", resolution, "_PC_", pc.use, ".rds"))
