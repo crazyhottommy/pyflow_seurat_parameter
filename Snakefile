@@ -42,7 +42,7 @@ rule full_sample_preprocess:
 
 
 rule gather_full_sample_preprocess:
-	input: FULLSAMPLE_K_RESOLUTION_PC
+	input: rds = FULLSAMPLE_K_RESOLUTION_PC
 	output: "gather_full_sample.rds"
 	singularity: "docker://crazyhottommy/seuratv3"
 	log: "00log/full_sample_gather_idents.log"
