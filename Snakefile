@@ -52,7 +52,7 @@ rule gather_full_sample_preprocess:
 
 ## subsample e.g. 80% of the cells and re-do the clustering for n times
 rule subsample_cluster:
-	input: "subsample_preprocess/subsample_k_{k}_resolution_{resolution}_PC_{pc}.rds"
+	input: "full_sample_preprocess/full_sample_k_{k}_resolution_{resolution}_PC_{pc}.rds"
 	output: "subsample/subsample_k_{k}_resolution_{resolution}_PC_{pc}_round_{run_id}.rds"
 	singularity: "docker://crazyhottommy/seuratv3"
 	log: "00log/subsample_k_{k}_resolution_{resolution}_PC_{pc}_round_{run_id}.log"
