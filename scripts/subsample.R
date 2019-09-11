@@ -1,4 +1,5 @@
 library(Seurat)
+library(tidyverse)
 
 ## see https://bitbucket.org/snakemake/snakemake/issues/917/enable-stdout-and-stderr-redirection
 log <- file(snakemake@log[[1]], open="wt")
@@ -12,6 +13,18 @@ pc.use<- snakemake@wildcards[["pc"]]
 run_id<- snakemake@wildcards[["run_id"]]
 
 PreprocessSubsetData_pars<- snakemake@params[["PreprocessSubsetData_pars"]]
+
+RandomSubsetData<- function(object, rate, random.subset.seed = NULL, ...){
+        ncells<- nrow(object@meta.data)
+        ncells.subsample<- round(ncells * rate)
+
+        set.seed(random.subset.seed)
+
+        selected.cells<- sample(colnames(object), ncells.subsample)
+        object<- subset(object, cells =  selected.cells,
+                            ...)
+        return(object)
+}
 
 subset_seurat_obj<- RandomSubsetData(seurat_obj, rate = snakemake@params[["rate"]])
 original_ident<- Idents(subset_seurat_obj)

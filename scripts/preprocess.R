@@ -1,4 +1,5 @@
 library(Seurat)
+library(tidyverse)
 
 ## see https://bitbucket.org/snakemake/snakemake/issues/917/enable-stdout-and-stderr-redirection
 log <- file(snakemake@log[[1]], open="wt")
