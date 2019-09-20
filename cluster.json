@@ -21,5 +21,17 @@
         "time" : "1:00:00",
         "n" : 8,
         "mem": 32768
+    },
+    "gather_full_sample_preprocess":
+    {
+        "time": "1:00:00",
+        "n": 1,
+        "mem": 8000
+    },
+    "gather_subsample":
+    {
+        "time": "1:00:00",
+        "n": 1,
+        "mem": 8000
     }
 }
