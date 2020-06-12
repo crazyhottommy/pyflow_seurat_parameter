@@ -19,7 +19,8 @@ screen
 
 git clone https://github.com/crazyhottommy/pyflow_seuratv3_parameter
 
-conda create n=snakemake python=3.6 snakemake
+conda install -c conda-forge mamba
+mamba create -c conda-forge -c bioconda -n snakemake snakemake
 
 source activate snakemake
 
@@ -44,6 +45,8 @@ copy your seurat object into the `pyflow_seuratv3_parameter` folder and
 
 open the `config.ymal` file to edit some configurations.
 
+
+
 ```bash
 # dry run
 snakemake -np 
@@ -51,7 +54,7 @@ snakemake -np
 # if on bioinfo1 or bioinfo2 (there are 64 cores avaiable on each node)
 snakemake -j 40
 
-# if submitting job to queue 
+# if submitting job to queue (for slurm only)
 
 ./pyflow-scBoot.sh
 ```
