@@ -3,7 +3,7 @@
 A snakemake pipeline to scatter and gather Seurat@ident by subsampling the cells and repeat for 
 multiple times. This is useful for evaluating the cluster stability using different parameters.
 
-For now, three paramters are tested.
+For now, three parameters are tested.
 
 * number of PCs (principle components) used for `RunPCA` (npcs) and `FindNeighbors` (dims).
 * `k.param` for `FindNeighbors`
@@ -35,7 +35,7 @@ R
 
 ```
 
-If you do not want to install `Seurat` yourself, a singularity container image is avaiable if you evoke snakemake:
+If you do not want to install `Seurat` yourself, a singularity container image is available if you evoke snakemake:
 
 ```
 snakemake --use-singularity
