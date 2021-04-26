@@ -17,7 +17,7 @@ ssh odyssey
 ## start a screen session
 screen
 
-git clone https://github.com/crazyhottommy/pyflow_seuratv3_parameter
+git clone https://github.com/crazyhottommy/pyflow_seurat_parameter
 
 conda install -c conda-forge mamba
 mamba create -c conda-forge -c bioconda -n snakemake snakemake
@@ -35,7 +35,7 @@ R
 
 ```
 
-If you do not want to install `Seurat` yourself, a singularity container image is available if you evoke snakemake:
+If you do not want to install `Seurat` yourself, a singularity container image is available if you evoke snakemake (This is for Seurat V3 only):
 
 ```
 snakemake --use-singularity
