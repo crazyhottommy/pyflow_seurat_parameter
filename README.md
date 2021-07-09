@@ -58,3 +58,5 @@ snakemake -j 40
 
 ./pyflow-scBoot.sh
 ```
+
+The `rds` output from this workflow can be directly used by the [scclusteval R package](https://github.com/crazyhottommy/scclusteval) for downstream analysis.
